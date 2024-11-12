@@ -1,5 +1,4 @@
 class NOT:
-    '''NOT(expression) == (!expression)'''
     def __init__(self, expression):
         self.expression = expression
 
