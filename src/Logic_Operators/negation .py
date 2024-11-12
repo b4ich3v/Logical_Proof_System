@@ -1,9 +1,9 @@
-class NOT:
+class Negation:
     def __init__(self, expression):
         self.expression = expression
 
     def __str__(self):
-        if isinstance(self.expression, VAR) or isinstance(self.expression, NOT):
+        if isinstance(self.expression, LogicalVariable) or isinstance(self.expression, Negation):
             return "!{}".format(str(self.expression))
         elif isinstance(self.expression, bool):
             return "!({})".format(str(self.expression))
@@ -11,7 +11,7 @@ class NOT:
             return "!({})".format(str(self.expression))
     
     def __repr__(self):
-        return "NOT({})".format(repr(self.expression))
+        return "Negation({})".format(repr(self.expression))
     
     def comma_format(self):
         return "(!{})".format(self.expression.comma_format())
@@ -20,7 +20,7 @@ class NOT:
         return not self.expression.evaluate(assignment)
     
     def __eq__(self, other):
-        return isinstance(other, NOT) and self.expression == other.expression
+        return isinstance(other, Negation) and self.expression == other.expression
     
     def __hash__(self):
         return hash(self.expression)
