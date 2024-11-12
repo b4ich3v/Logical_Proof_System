@@ -1,5 +1,4 @@
 class IMP:
-    '''IMP(left, right) == (left => right)'''
     def __init__(self, left, right):
         self.left = left
         self.right = right
